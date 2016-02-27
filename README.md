@@ -1,31 +1,31 @@
-# AMD navigator
+# Ember Import Navigator
 
-This package adds single command for easy navigating in Javascript files (especially files using AMD syntax).
+Based off `amd-navigator` package: [https://github.com/zboro/amd-navigator](https://github.com/zboro/amd-navigator)
 
-Click into your code, select "Go to module" command (ctrl + alt + X) and this package will try to navigate you to definition of selected function or module.
+This package is for Ember Apps with `usePods: true` and will open the relevant file for an imported module based on where the cursor is located.
 
-Currently it is possible to select these locations in code:
+You can open the module by pressing `Ctrl+Alt+E` when your cursor is on the module variable or the import path. This also works with module method names, and for functions declared in the same file, it uses Atom's native `Symbols View` package.
 
-* **string with relative path** - .js file extension is assumed
-* **string with AMD module identifier** (e.g. "app/myModule") - package name needs to be found in packages config.
+### Example
+With the following import line:
 
-	Packages need to be defined in Atom config file:
-		"amd-navigator":
-			packages:
-				app: "src/app"
+```javascript
+	import FooMixin from 'my-project/mixins/foo'
+```
 
-* **variable referencing AMD module** - e.g. any occurence of myModule variable in following example
-		define([
-			"app/myModule"
-		], function(myModule) {
-			//code
-			myModule.myFunction();
-		});
+The package will look for a `package.json` file in the root of the current file to determine the project name. It will replace the project name found in the import path and unless the import path contains `config`, it will look for the file in the `app` directory, assuming a default Ember folder structure:
 
-* **function or property of loaded AMD module** - e.g. "myFunction" from previous example. If function is selected, editor will try to scroll to that function. Function needs to be directly on module variable, "myModule.something.myFunction()" will not work.
-* **any usage of function defined in the same file** - this won't open any file, only scroll the current one.
+```
+/project-root
+	/app
+		/mixins
+			foo.js
+	/config
+```
 
-Searching for function declarations uses Atom's "Symbols View" package.
+File extension is assumed to be `.js`
+
+The package _could_ check for the existence of the folder first, and then check the project root for the same folder name, but checking if a directory exists returns a promise, which would slow the package down.
 
 ### Known issues
 

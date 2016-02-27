@@ -1,11 +1,11 @@
 {
-  "name": "amd-navigator",
+  "name": "ember-import-navigator",
   "main": "./index.coffee",
-  "version": "0.1.2",
-  "description": "Helps navigating through AMD modules",
-  "repository": "https://github.com/zboro/amd-navigator",
+  "version": "0.1.0",
+  "description": "Helps navigating through Ember imported modules",
+  "repository": "https://github.com/alexheyd/ember-import-navigator",
   "activationCommands": {
-    "atom-text-editor": "amd-navigator:go-to-module"
+    "atom-text-editor": "ember-import-navigator:go-to-module"
   },
   "license": "MIT",
   "engines": {
