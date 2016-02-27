@@ -4,7 +4,6 @@ TagGenerator = require("symbols-view/lib/tag-generator")
 
 FULL_MID_PATTERN = "^(\\w+(?:/\\w+)+)(?:.*?)?$"
 RELATIVE_MID_PATTERN = "^((?:..?/)+(?:\\w+/)*\\w+)(?:.*?)?$"
-REQUIRE_PATTERN = "(?:require|define)\\s*\\(\\s*\\[((?:\\s|\\S)+?)\\]\\s*,\\s*function\\s*\\(((?:\\s|\\S)+?)\\)"
 PROJECT_NAME = ""
 CURRENT_PROJECT = ""
 
@@ -176,7 +175,7 @@ module.exports =
 
 	activate: (state) ->
 		@subscriptions = new CompositeDisposable()
-		@subscriptions.add(atom.commands.add('atom-text-editor', 'ember-amd-navigator:go-to-module': => goToModule()))
+		@subscriptions.add(atom.commands.add('atom-text-editor', 'ember-import-navigator:go-to-module': => goToModule()))
 
 	deactivate: ->
 		@subscriptions.dispose()
