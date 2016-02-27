@@ -1,7 +1,7 @@
 {
   "name": "ember-import-navigator",
   "main": "./index.coffee",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Helps navigating through Ember imported modules",
   "repository": "https://github.com/alexheyd/ember-import-navigator",
   "activationCommands": {
