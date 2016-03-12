@@ -1,5 +1,7 @@
 # Ember Import Navigator
 
+[DEPRECATED] -- replaced with `jump-to-import`. New package was rewritten from scratch: [https://atom.io/packages/jump-to-import](https://atom.io/packages/jump-to-import)
+
 Based off `amd-navigator` package: [https://github.com/zboro/amd-navigator](https://github.com/zboro/amd-navigator)
 
 This fork no longer supports `require` AMD modules, and no longer has a package config. The lack of a config removes the flexibility to remap the paths any way you want, but also simplifies things by removing that necessity (I only work with Ember apps currently).
